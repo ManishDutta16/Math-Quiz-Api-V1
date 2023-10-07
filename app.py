@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
+# from waitress import serve
 
 from code_1 import misslen
 
@@ -20,3 +21,4 @@ def check():
 # driver function
 if __name__ == '__main__':
     app.run(debug = False, host='0.0.0.0')
+    # serve(app, host="0.0.0.0", port=8080)
