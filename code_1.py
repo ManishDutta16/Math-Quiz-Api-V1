@@ -6,7 +6,7 @@ def misslen():
     for i in range(size):
        vars.append(random.randint(1, 5))
     symbols = ['+', '-', '*', '/','^']
-    brackets = "("*size
+    brackets = "("*(size-1)
     ques = f"what is the value of {brackets}{vars[0]}"
     ans = vars[0]
     for i in range(1, size):
