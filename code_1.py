@@ -46,7 +46,8 @@ def misslen():
             curr_ans /= vars[i]
             
         elif curr_symbol == '^':
-            curr_ans **= vars[i]   
+            curr_ans **= vars[i]  
+             
         elif curr_symbol == 'log':
             if curr_ans <= 0 or vars[i] <= 0:
                 continue
