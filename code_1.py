@@ -41,17 +41,15 @@ def misslen():
             curr_ans *= vars[i]
             
         elif curr_symbol == '/':
-            if vars[i] == 0:
-                continue
             curr_ans /= vars[i]
             
         elif curr_symbol == '^':
             curr_ans **= vars[i]  
              
         elif curr_symbol == 'log':
-            if curr_ans <= 0 or vars[i] <= 0:
+            if curr_ans <= 0:
                 continue
-            curr_ans = math.log(curr_ans, vars[i])  
+            curr_ans = math.log(int(curr_ans), vars[i])  
         
         elif curr_symbol == 'sin':
             curr_ans = math.sin(curr_ans)  
