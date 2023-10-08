@@ -1,10 +1,12 @@
 import random
+import math 
 def misslen():
     size = random.randint(2, 5)
     vars = []
     for i in range(size):
-       vars.append(random.randint(1, 5))
-    symbols = ['+', '-', '*', '/','^']
+       vars.append(random.randint(1, 4))
+    # symbols = ['+', '-', '*', '/','^']
+    symbols = ['+', '-', '*', '/', '^', 'log', 'sin', 'cos', 'sqrt']
     brackets = "("*(size-1)
     ques = f"what is the value of {brackets}{vars[0]}"
     ans = vars[0]
@@ -39,11 +41,29 @@ def misslen():
             curr_ans *= vars[i]
             
         elif curr_symbol == '/':
+            if vars[i] == 0:
+                continue
             curr_ans /= vars[i]
             
         elif curr_symbol == '^':
-            curr_ans **= vars[i]     
-    
+            curr_ans **= vars[i]   
+        elif curr_symbol == 'log':
+            if curr_ans <= 0 or vars[i] <= 0:
+                continue
+            curr_ans = math.log(curr_ans, vars[i])  
+        
+        elif curr_symbol == 'sin':
+            curr_ans = math.sin(curr_ans)  
+        
+        elif curr_symbol == 'cos':
+            curr_ans = math.cos(curr_ans)  
+        
+        elif curr_symbol == 'sqrt':
+            if curr_ans < 0:
+                continue
+            curr_ans = math.sqrt(curr_ans)  
+        
+        curr_ans = round(curr_ans, 2)
         ans = curr_ans
 
         options = [
