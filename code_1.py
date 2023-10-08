@@ -1,4 +1,3 @@
-
 import random
 def misslen():
     size = random.randint(2, 5)
