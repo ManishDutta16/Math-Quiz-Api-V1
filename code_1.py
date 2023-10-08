@@ -11,33 +11,46 @@ def misslen():
     ans = vars[0]
     for i in range(1, size):
         curr_symbol =  random.choice(symbols)
-        ques +=''if curr_symbol=='^' else curr_symbol
-        ques += ''if curr_symbol=='^' else str(vars[i])+")"
+        ques += curr_symbol
+        ques += str(vars[i])+")"
         curr_ans = ans
-        match curr_symbol:
-            case '+':
-                curr_ans += vars[i]
+        # match curr_symbol:
+        #     case '+':
+        #         curr_ans += vars[i]
             
-            case '-':
-                curr_ans -= vars[i]
+        #     case '-':
+        #         curr_ans -= vars[i]
             
-            case '*':
-                curr_ans *= vars[i]
+        #     case '*':
+        #         curr_ans *= vars[i]
                 
-            case '/':
-                curr_ans /= vars[i]
+        #     case '/':
+        #         curr_ans /= vars[i]
                 
-            case '^':
-                pow = random.randint(2, 4)
-                ques += f"^{pow}"+")"
-                curr_ans = curr_ans**(pow)
-                
+        #     case '^':
+        #         curr_ans **= vars[i]     
+        
+        if curr_symbol == '+':
+            curr_ans += vars[i]
+        
+        elif curr_symbol == '-':
+            curr_ans -= vars[i]
+        
+        elif curr_symbol == '*':
+            curr_ans *= vars[i]
+            
+        elif curr_symbol == '/':
+            curr_ans /= vars[i]
+            
+        elif curr_symbol == '^':
+            curr_ans **= vars[i]     
+    
         ans = curr_ans
 
         options = [
-            ans + random.randint(-ans, ans),
-            ans + random.randint(-ans, ans),
-            ans + random.randint(-ans, ans),
+            ans + random.randint(1, abs(int(ans))+1),
+            ans + random.randint(1, abs(int(ans))+1),
+            ans + random.randint(1, abs(int(ans))+1),
             ans
         ]   
         
@@ -60,4 +73,4 @@ def misslen():
             "correctOption": correct_option_key
         } 
     return(data_to_be_transferred)
-# print(misslen())
+print(misslen())
